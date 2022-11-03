@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg); 
+}
+* {box-sizing: border-box;}
+
+.input-container {
+  display: -ms-flexbox; 
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+.text{
+  color: gold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+</style>
+</head>
+<body>
+
+<form action="registration.php" style="max-width:500px;margin:auto" onsubmit="return validate()" method="POST">
+  <h1><span class="text">register yourself</span></h1>
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" name="uname" type="text" id="uname" placeholder="Enter Username" required pattern="[a-z]{3,10}" title="Username should not contain any numbers" onchange="usernameValidation()">
+  </div>
+  <div class="input-container">
+    <i class="fa fa-envelope icon"></i>
+    <input class="input-field" type="text" placeholder="Email" name="email">
+  </div>
+  <div class="input-container">
+    <i class="fa fa-envelope icon"></i><input name='mobile' type="number" placeholder="Enter Mobile Number" required>
+  </div>
+  <div class="input-container">
+    <i class="fa fa-key icon"></i>
+    <input name="pass1" type="password" placeholder="Enter Password" id="pass1" required>
+  </div>
+  <div class="input-container">
+    <i class="fa fa-key icon"></i>
+  <input name="pass2" type="password" placeholder="Retype Password" id="pass2" required></div>
+  <button type="submit" class="btn">Register</button>
+</form>
+  <script>
+    function usernameValidation()
+    {
+        uname=document.getElementById('uname').value
+        if(uname==='ritik')
+        {
+            alert('ritik is a reserved Username');
+            return false;
+        }
+        else{
+          return true;
+        }
+    }
+    function validate()
+    {
+
+        pass1=document.getElementById('pass1').value
+        pass2=document.getElementById('pass2').value
+        if(pass1===pass2)
+        {
+            return true
+        }
+        else
+        {
+            alert("Password Mismatch");
+            return false
+        }
+    }
+    </script>
+    
+</body>
+</html>
